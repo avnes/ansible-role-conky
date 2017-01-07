@@ -1,3 +1,6 @@
+master:
+[![Build Status](https://travis-ci.org/avnes/ansible-role-conky.png?branch=master)](https://travis-ci.org/avnes/ansible-role-conky)
+develop:
 [![Build Status](https://travis-ci.org/avnes/ansible-role-conky.png?branch=develop)](https://travis-ci.org/avnes/ansible-role-conky)
 
 ansible-role-conky
