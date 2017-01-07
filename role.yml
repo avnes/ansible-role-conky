@@ -1,4 +1,4 @@
 ---
 - hosts: localhost
   roles:
-    - { role: ansible-role-conky, config_owner: "{{ ansible-role-conky }}" }
+    - { role: ansible-role-conky, config_owner: "ansible-role-conky" }
