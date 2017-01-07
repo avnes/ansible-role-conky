@@ -60,7 +60,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: all
       roles:
-         - { role: avnes.ansible-role-conky, config_owner: "{{ ansible_user_id }}" }
+         - { role: avnes.ansible-role-conky }
 
 License
 -------

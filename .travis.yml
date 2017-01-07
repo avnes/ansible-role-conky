@@ -5,8 +5,8 @@ python: "2.7"
 # Use the new container infrastructure
 sudo: required
 
-services:
-  - docker
+#services:
+#  - docker
 
 # Install ansible
 addons:
@@ -25,8 +25,9 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
+  - ansible -i tests/inventory -m command -a "useradd ansible-role-conky"
   - ansible-playbook -i tests/inventory --syntax-check --list-tasks role.yml
-  - ansible-playbook -i tests/inventory --connection=local --sudo -vvvv role.yml
+  - ansible-playbook -i tests/inventory --connection=local --sudo -vvvv role.yml -u ansible-role-conky
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

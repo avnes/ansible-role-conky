@@ -41,8 +41,7 @@
   - { name: 'lm-sensors', state: 'present' }
 
 - template:
-  become: false
     src: conkyrc.j2
-    dest: ~/.conkyrc
-    owner: "{{ config_owner }}"
+    dest: "{{ ansible_user_dir }}/.conkyrc"
+    owner: "{{ user }}"
     mode: 0644
