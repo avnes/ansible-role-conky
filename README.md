@@ -12,40 +12,40 @@ Role Variables
 --------------
 The variables are found in defaults/main.yml, and are used with the conkyrc.j2 template.
 
-alignment
-background
-border_outer_margin
-border_width
-cpu_avg_samples
-default_color: white
-default_outline_color
-default_shade_color
-draw_borders
-draw_graph_borders
-draw_outline
-draw_shades
-double_buffer
-extra_newline
-font
-gap_x
-gap_y
-no_buffers
-out_to_console
-out_to_stderr
-own_window
-own_window_class
-own_window_transparent
-own_window_type
-own_window_hints
-short_units
-stippled_borders
-update_interval
-uppercase
-use_xft
-use_spacer
-show_graph_scale
-show_graph_range
-conky_text
+    alignment
+    background
+    border_outer_margin
+    border_width
+    cpu_avg_samples
+    default_color: white
+    default_outline_color
+    default_shade_color
+    draw_borders
+    draw_graph_borders
+    draw_outline
+    draw_shades
+    double_buffer
+    extra_newline
+    font
+    gap_x
+    gap_y
+    no_buffers
+    out_to_console
+    out_to_stderr
+    own_window
+    own_window_class
+    own_window_transparent
+    own_window_type
+    own_window_hints
+    short_units
+    stippled_borders
+    update_interval
+    uppercase
+    use_xft
+    use_spacer
+    show_graph_scale
+    show_graph_range
+    conky_text
 
 Dependencies
 ------------
