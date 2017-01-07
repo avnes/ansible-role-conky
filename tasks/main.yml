@@ -43,5 +43,5 @@
 - template:
     src: conkyrc.j2
     dest: "{{ ansible_user_dir }}/.conkyrc"
-    owner: "{{ user }}"
+    owner: "{{ ansible_user_id }}"
     mode: 0644

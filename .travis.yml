@@ -5,6 +5,9 @@ python: "2.7"
 # Use the new container infrastructure
 sudo: required
 
+before_install:
+ - sudo useradd -d /home/ansible-role-conky ansible-role-conky
+
 #services:
 #  - docker
 
@@ -25,7 +28,6 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  - ansible -i tests/inventory -m command -a "useradd ansible-role-conky"
   - ansible-playbook -i tests/inventory --syntax-check --list-tasks role.yml
   - ansible-playbook -i tests/inventory --connection=local --sudo -vvvv role.yml -u ansible-role-conky
 
