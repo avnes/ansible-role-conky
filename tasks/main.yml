@@ -44,5 +44,5 @@
     become: no
     src: conkyrc.j2
     dest: ~/.conkyrc
-    owner: {{ user }}
+    owner: "{{ config_owner }}"
     mode: 0644

@@ -2,4 +2,4 @@
 - hosts: localhost
   become: yes
   roles:
-    - ansible-role-conky
+    - { role: ansible-role-conky, config_owner: "{{ ansible_user_id }}" }

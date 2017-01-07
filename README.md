@@ -46,6 +46,7 @@ The variables are found in defaults/main.yml, and are used with the conkyrc.j2 t
     show_graph_scale
     show_graph_range
     conky_text
+    config_owner
 
 Dependencies
 ------------
@@ -59,7 +60,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: all
       roles:
-         - { role: avnes.ansible-role-conky, x: 42 }
+         - { role: avnes.ansible-role-conky, config_owner: "{{ ansible_user_id }}" }
 
 License
 -------

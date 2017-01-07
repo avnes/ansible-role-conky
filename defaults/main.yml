@@ -61,3 +61,4 @@ conky_text: |
   ${color #888}${top cpu 7} ${top name 4} ${top mem 7}
   ${color #888}${top cpu 8} ${top name 4} ${top mem 8}
   ${color #888}${top cpu 9} ${top name 4} ${top mem 9}
+config_owner: root
