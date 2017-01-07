@@ -7,6 +7,8 @@ ansible-role-conky
 =========
 
 Ansible role for installing conky and performing basic setup and configuration.
+Basic .conkyrc copied from [doyousketch2] (https://gist.github.com/doyousketch2/c0088f3827025ee037735f156e2c903c)
+and adjusted slightly.
 
 Requirements
 ------------
