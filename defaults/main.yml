@@ -1,0 +1,63 @@
+---
+# defaults file for ansible-role-conky
+
+# For conkyrc template
+# Copied from https://gist.github.com/doyousketch2/c0088f3827025ee037735f156e2c903c
+# and adjusted slightly
+
+alignment: 'top_left'
+background: false
+border_outer_margin: 5
+border_width: 1
+cpu_avg_samples: 2
+default_color: white
+default_outline_color: '#555'
+default_shade_color: 'black'
+draw_borders: false
+draw_graph_borders: true
+draw_outline: false
+draw_shades: true
+double_buffer: false
+extra_newline: false
+font: 'DejaVu Sans Mono:size=10'
+gap_x: 35
+gap_y: 25
+no_buffers: true
+out_to_console: false
+out_to_stderr: false
+own_window: true
+own_window_class: 'Conky'
+own_window_transparent: true
+own_window_type: 'desktop'
+own_window_hints: 'below'
+short_units: true
+stippled_borders: 0
+update_interval: 3
+uppercase: false
+use_xft: true
+use_spacer: 'none'
+show_graph_scale: false
+show_graph_range: false
+
+conky_text: |
+  ${color grey}CPU : $freq_g GHz
+  $color $cpu% ${cpubar 4}
+  ${color grey}RAM : $mem / $memmax
+  $color $memperc% ${membar 4}
+  ${color grey}Swap : $swap / $swapmax
+  $color $swapperc% ${swapbar 4}
+  ${color grey}File systems:
+  ${color #888} /    ${color grey}${fs_used /} / ${fs_size /}
+  $color ${fs_bar 6 /}
+  ${color #888} /home  ${color grey}${fs_used /home} / ${fs_size /home}
+  $color ${fs_bar 6 /home}
+  ${color grey}  CPU% Name               MEM%
+  ${color #888}${top cpu 1} ${top name 1} ${top mem 1}
+  ${color #888}${top cpu 2} ${top name 2} ${top mem 2}
+  ${color #888}${top cpu 3} ${top name 3} ${top mem 3}
+  ${color #888}${top cpu 4} ${top name 4} ${top mem 4}
+  ${color #888}${top cpu 5} ${top name 4} ${top mem 5}
+  ${color #888}${top cpu 6} ${top name 4} ${top mem 6}
+  ${color #888}${top cpu 7} ${top name 4} ${top mem 7}
+  ${color #888}${top cpu 8} ${top name 4} ${top mem 8}
+  ${color #888}${top cpu 9} ${top name 4} ${top mem 9}

@@ -1,0 +1,48 @@
+---
+# tasks file for ansible-role-conky
+
+- name: Install software on {{ ansible_distribution }}
+  when: ansible_distribution == 'Fedora'
+  become: yes
+  dnf:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+  - { name: 'conky', state: 'present' }
+  - { name: 'curl', state: 'present' }
+
+- name: Install software on {{ ansible_distribution }}
+  when: ansible_distribution == 'ArchLinux'
+  become: yes
+  dnf:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+  - { name: 'conky', state: 'present' }
+  - { name: 'conky-lua', state: 'present' }
+  - { name: 'curl', state: 'present' }
+
+- name: Update software cache on {{ ansible_distribution }}
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: Install software on {{ ansible_distribution }}
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  become: yes
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+  - { name: 'conky', state: 'present' }
+  - { name: 'conky-all', state: 'present' }
+  - { name: 'curl', state: 'present' }
+  - { name: 'lm-sensors', state: 'present' }
+
+- template:
+    become: no
+    src: conkyrc.j2
+    dest: ~/.conkyrc
+    owner: {{ user }}
+    mode: 0644
