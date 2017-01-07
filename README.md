@@ -1,38 +1,72 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Ansible role for installing conky and performing basic setup and configuration.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
+The variables are found in defaults/main.yml, and are used with the conkyrc.j2 template.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+alignment
+background
+border_outer_margin
+border_width
+cpu_avg_samples
+default_color: white
+default_outline_color
+default_shade_color
+draw_borders
+draw_graph_borders
+draw_outline
+draw_shades
+double_buffer
+extra_newline
+font
+gap_x
+gap_y
+no_buffers
+out_to_console
+out_to_stderr
+own_window
+own_window_class
+own_window_transparent
+own_window_type
+own_window_hints
+short_units
+stippled_borders
+update_interval
+uppercase
+use_xft
+use_spacer
+show_graph_scale
+show_graph_range
+conky_text
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+    - hosts: all
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: avnes.ansible-role-conky, x: 42 }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+https://github.com/avnes
