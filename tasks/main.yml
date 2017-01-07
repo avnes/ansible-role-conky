@@ -3,7 +3,7 @@
 
 - name: Install software on {{ ansible_distribution }}
   when: ansible_distribution == 'Fedora'
-  become: yes
+  become: true
   dnf:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
@@ -13,7 +13,7 @@
 
 - name: Install software on {{ ansible_distribution }}
   when: ansible_distribution == 'ArchLinux'
-  become: yes
+  become: true
   dnf:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
@@ -24,13 +24,13 @@
 
 - name: Update software cache on {{ ansible_distribution }}
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  become: yes
+  become: true
   apt:
     update_cache: yes
 
 - name: Install software on {{ ansible_distribution }}
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-  become: yes
+  become: true
   apt:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
@@ -41,7 +41,7 @@
   - { name: 'lm-sensors', state: 'present' }
 
 - template:
-    become: no
+  become: false
     src: conkyrc.j2
     dest: ~/.conkyrc
     owner: "{{ config_owner }}"
