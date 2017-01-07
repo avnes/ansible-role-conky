@@ -40,17 +40,17 @@
   - { name: 'curl', state: 'present' }
   - { name: 'lm-sensors', state: 'present' }
 
-  - name: Install software on Debian
-    when: ansible_distribution == 'Debian'
-    become: true
-    apt:
-      name: "{{ item.name }}"
-      state: "{{ item.state }}"
-    with_items:
-    - { name: 'conky', state: 'present' }
-    - { name: 'conky-all', state: 'present' }
-    - { name: 'curl', state: 'present' }
-    - { name: 'lm-sensors', state: 'present' }
+- name: Install software on Debian
+  when: ansible_distribution == 'Debian'
+  become: true
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+  - { name: 'conky', state: 'present' }
+  - { name: 'conky-all', state: 'present' }
+  - { name: 'curl', state: 'present' }
+  - { name: 'lm-sensors', state: 'present' }
 
 - template:
     src: conkyrc.j2

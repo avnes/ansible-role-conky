@@ -1,4 +1,6 @@
-Role Name
+[![Build Status](https://travis-ci.org/avnes/ansible-role-conky.png?branch=develop)](https://travis-ci.org/avnes/ansible-role-conky)
+
+ansible-role-conky
 =========
 
 Ansible role for installing conky and performing basic setup and configuration.
