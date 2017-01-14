@@ -56,7 +56,6 @@
   - { name: 'lm-sensors', state: 'present' }
 
 - name: Configure Conky
-  become_user: "{{ config_owner }}"
   template:
     src: conkyrc.j2
     dest: "~{{ config_owner }}/.conkyrc"
