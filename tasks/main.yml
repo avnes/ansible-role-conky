@@ -11,10 +11,16 @@
   - { name: 'conky', state: 'present' }
   - { name: 'curl', state: 'present' }
 
+- name: Update software cache for pacman
+  when: ansible_distribution == 'ArchLinux'
+  become: true
+  pacman:
+    update_cache: yes
+
 - name: Install software on ArchLinux
   when: ansible_distribution == 'ArchLinux'
   become: true
-  dnf:
+  pacman:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
@@ -52,8 +58,10 @@
   - { name: 'curl', state: 'present' }
   - { name: 'lm-sensors', state: 'present' }
 
-- template:
+- name: Configure Conky
+  become_user: "{{ config_owner }}"
+  template:
     src: conkyrc.j2
-    dest: "{{ ansible_user_dir }}/.conkyrc"
-    owner: "{{ ansible_user_id }}"
+    dest: "~{{ config_owner }}/.conkyrc"
+    owner: "{{ config_owner }}"
     mode: 0644
