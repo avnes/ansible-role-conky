@@ -4,12 +4,16 @@ MAINTAINER audun.nes@gmail.com
 
 ENV test_dir ansible-role-conky
 
-RUN pacman --needed --noconfirm -S python2 python2-yaml python2-paramiko python2-jinja python2-crypto ansible \
+RUN pacman --needed --noconfirm -S python2 python2-yaml python2-paramiko \
+  python2-jinja python2-crypto python2-passlib python2-netaddr ansible \
   && mkdir -p /etc/ansible/roles/${test_dir} \
   && touch /etc/ansible/ansible.cfg \
   && echo "[defaults]" > /etc/ansible/ansible.cfg \
   && echo "roles_path=/etc/ansible/roles" >> /etc/ansible/ansible.cfg \
-  && useradd ansible-test-user
+  && useradd ansible-test-user \
+  && mkdir /home/ansible-test-user \
+  && chown ansible-test-user:ansible-test-user /home/ansible-test-user \
+  && ln -s /usr/bin/python2 /usr/bin/python
 
 ADD . /etc/ansible/roles/${test_dir}
 
