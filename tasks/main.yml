@@ -28,7 +28,7 @@
   - { name: 'conky-lua', state: 'present' }
   - { name: 'curl', state: 'present' }
 
-- name: Update software cache on for apt-get
+- name: Update software cache for apt-get
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   become: true
   apt:
@@ -42,9 +42,6 @@
     state: "{{ item.state }}"
   with_items:
   - { name: 'conky', state: 'present' }
-  - { name: 'conky-all', state: 'present' }
-  - { name: 'curl', state: 'present' }
-  - { name: 'lm-sensors', state: 'present' }
 
 - name: Install software on Debian
   when: ansible_distribution == 'Debian'
