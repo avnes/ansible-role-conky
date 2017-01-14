@@ -77,7 +77,7 @@ ansible-playbook -i tests/inventory --check --connection=local --sudo -vvvv role
 ## Run
 
 ```
-ansible-playbook -i tests/inventory --connection=local --sudo -vvvv role.yml
+ansible-playbook -i tests/inventory --connection=local --sudo -vvvv role.yml -K
 ```
 
 ## License

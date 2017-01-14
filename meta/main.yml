@@ -10,6 +10,7 @@ galaxy_info:
   platforms:
   - name: Fedora
     versions:
+    - 24
     - 25
   - name: ArchLinux
     versions:
