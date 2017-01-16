@@ -1,6 +1,8 @@
 ---
 # defaults file for ansible-role-conky
 
+config_owner: "{{ ansible_user_id }}"
+
 # For conkyrc template
 # Copied from https://gist.github.com/doyousketch2/c0088f3827025ee037735f156e2c903c
 # and adjusted slightly

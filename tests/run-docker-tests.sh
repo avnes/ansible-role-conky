@@ -10,6 +10,7 @@ sudo docker build -f $PWD/DockerFile-Ubuntu-yakkety -t test/ubuntu:16.10 ..
 sudo docker images
 
 docker_image="test/fedora:25"; export docker_image
+echo "${docker_image}"
 sudo docker run -t --entrypoint "/usr/bin/ansible" ${docker_image} --version
 sudo docker run -t ${docker_image}
 

@@ -15,7 +15,7 @@ config_owner:
   String (mandatory) to specify the Linux user that should have conky setup for them.
 ```
 
-These variables are found in defaults/main.yml, and of them are used with the conkyrc.j2 template.
+These variables are found in defaults/main.yml, and of most them are used with the conkyrc.j2 template.
 
 ```
 alignment
