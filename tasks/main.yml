@@ -33,6 +33,7 @@
   become: true
   apt:
     update_cache: yes
+  changed_when: false
 
 - name: Install software on Ubuntu
   when: ansible_distribution == 'Ubuntu'
@@ -42,6 +43,7 @@
     state: "{{ item.state }}"
   with_items:
   - { name: 'conky', state: 'present' }
+  - { name: 'curl', state: 'present' }
 
 - name: Install software on Debian
   when: ansible_distribution == 'Debian'
@@ -60,4 +62,5 @@
     src: conkyrc.j2
     dest: "~{{ config_owner }}/.conkyrc"
     owner: "{{ config_owner }}"
+    group: "{{ config_owner_primary_group }}"
     mode: 0644

@@ -1,4 +1,0 @@
----
-- hosts: localhost
-  roles:
-    - { role: ansible-role-conky, config_owner: 'ansible-test-user' }

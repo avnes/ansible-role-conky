@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
-  remote_user: root
+- hosts: all
+  vars:
+    config_owner: ansible-test-user
   roles:
     - ansible-role-conky

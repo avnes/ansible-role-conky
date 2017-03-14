@@ -69,15 +69,9 @@ None
 ## Test
 
 ```
-ANSIBLE_CONFIG=./role.cfg; export ANSIBLE_CONFIG
-ansible-playbook -i tests/inventory --syntax-check role.yml
-ansible-playbook -i tests/inventory --check --connection=local --sudo -vvvv role.yml -K
-```
-
-## Run
-
-```
-ansible-playbook -i tests/inventory --connection=local --sudo -vvvv role.yml -K
+pip install molecule
+molecule create
+molecule test
 ```
 
 ## License

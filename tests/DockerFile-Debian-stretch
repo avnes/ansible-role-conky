@@ -1,21 +1,7 @@
 FROM debian:stretch
 
-MAINTAINER audun.nes@gmail.com
-
-ENV test_dir ansible-role-conky
-
 RUN apt-get update \
-  && apt-get install -y ansible \
-  && mkdir -p /etc/ansible/roles/${test_dir} \
-  && touch /etc/ansible/ansible.cfg \
-  && echo "[defaults]" > /etc/ansible/ansible.cfg \
-  && echo "roles_path=/etc/ansible/roles" >> /etc/ansible/ansible.cfg \
+  && apt-get install -y ansible sudo tar gzip \
   && useradd ansible-test-user \
   && mkdir /home/ansible-test-user \
   && chown ansible-test-user:ansible-test-user /home/ansible-test-user
-
-ADD . /etc/ansible/roles/${test_dir}
-
-WORKDIR /etc/ansible/roles/${test_dir}
-
-ENTRYPOINT exec /usr/bin/ansible-playbook -i tests/inventory --connection=local -vvvv role.yml
