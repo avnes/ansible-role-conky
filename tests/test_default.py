@@ -24,7 +24,6 @@ def test_conky_file(File):
 def test_packages(Package, TestinfraBackend, name):
     Command = TestinfraBackend.get_module("Command")
     if Command.exists("pacman"):
-        print 'ArchLinux platform is currently not supported for " \
-            + "Package testing in testinfra'
+        print 'ArchLinux is currently not supported for Package testing'
     else:
         assert Package(name).is_installed
