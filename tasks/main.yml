@@ -63,4 +63,4 @@
     dest: "~{{ config_owner }}/.conkyrc"
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"
-    mode: 0644
+    mode: 0700

@@ -10,4 +10,4 @@ def test_conky_file(File):
     assert f.exists
     assert f.user == 'ansible-test-user'
     assert f.group == 'ansible-test-user'
-    assert f.mode == 0o644
+    assert f.mode == 0o700
