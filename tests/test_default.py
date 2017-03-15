@@ -1,4 +1,3 @@
-import pytest
 import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
@@ -12,18 +11,3 @@ def test_conky_file(File):
     assert f.user == 'ansible-test-user'
     assert f.group == 'ansible-test-user'
     assert f.mode == 0o644
-
-
-@pytest.mark.parametrize("name", [
-    ("conky"),
-    ("curl"),
-    ("gzip"),
-    ("tar"),
-    ("sudo"),
-])
-def test_packages(Package, TestinfraBackend, name):
-    Command = TestinfraBackend.get_module("Command")
-    if Command.exists("pacman"):
-        print 'ArchLinux is currently not supported for Package testing'
-    else:
-        assert Package(name).is_installed
