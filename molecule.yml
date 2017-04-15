@@ -70,5 +70,12 @@ docker:
       dockerfile: tests/Dockerfile-Ubuntu-zesty
       ansible_groups:
         - ansible-role-conky-ubuntu-zesty
+    - name: ansible-role-conky-opensuse-42.2
+      image: opensuse
+      image_version: '42.2'
+      command: /bin/bash
+      dockerfile: tests/Dockerfile-openSUSE-42.2
+      ansible_groups:
+        - ansible-role-conky-opensuse-42.2
 verifier:
   name: testinfra

@@ -57,6 +57,17 @@
   - { name: 'curl', state: 'present' }
   - { name: 'lm-sensors', state: 'present' }
 
+- name: Install software on openSUSE
+  when: ansible_os_family == 'Suse'
+  become: true
+  zypper:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items:
+  - { name: 'conky', state: 'present' }
+  - { name: 'curl', state: 'present' }
+  - { name: 'conky-doc', state: 'present' }
+
 - name: Configure Conky
   template:
     src: conkyrc.j2
