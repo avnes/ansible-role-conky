@@ -1,34 +1,22 @@
+---
 galaxy_info:
+  role_name: conky
   author: avnes
   description: Will install conky and setup basic configuration
-  company:
 
   license: license (MIT)
 
-  min_ansible_version: 2.0
+  min_ansible_version: 2.9
 
   platforms:
   - name: Fedora
     versions:
-    - 24
-    - 25
-  - name: ArchLinux
-    versions:
     - all
-    - any
+    - 34
   - name: Ubuntu
     versions:
-    - xenial
-    - yakkety
-    - zesty
-  - name: Debian
-    versions:
-    - stretch
-    - sid
-    - jessie
-  - name: opensuse
-    versions:
-    - 42.2
+    - all
+    - hirsute
 
   galaxy_tags:
   - monitoring
