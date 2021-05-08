@@ -1,0 +1,19 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Example assertion
+    assert:
+      that: true
+
+# Old test that needs to be rewritten:
+# def test_conky_file(File):
+#     f = File('/home/ansible-test-user/.conkyrc')
+
+#     assert f.exists
+#     assert f.user == 'ansible-test-user'
+#     assert f.group == 'ansible-test-user'
+#     assert f.mode == 0o700
