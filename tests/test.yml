@@ -1,6 +1,0 @@
----
-- hosts: all
-  vars:
-    config_owner: ansible-test-user
-  roles:
-    - ansible-role-conky
