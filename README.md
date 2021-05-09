@@ -10,7 +10,7 @@ None
 
 ## Role Variables
 
-```
+```yaml
 config_owner:
   String (mandatory) to specify the Linux user that should have conky setup for them.
   Default: "{{ ansible_user_id }}"
@@ -22,7 +22,7 @@ config_owner_primary_group:
 
 These variables are found in defaults/main.yml, and of most them are used with the conkyrc.j2 template.
 
-```
+```yaml
 alignment
 background
 border_outer_margin
@@ -65,7 +65,7 @@ None
 
 ## Example Playbook
 
-```
+```yaml
 - hosts: all
   roles:
      - { role: avnes.ansible-role-conky, config_owner: 'maya' }
@@ -73,9 +73,10 @@ None
 
 ## Test
 
-```
-pip install molecule
-molecule create
+```bash
+virtualenv ~/.virtualenv/ansible-role-conky
+source ~/.virtualenv/ansible-role-conky/bin/activate
+pip install -r requirements.txt
 molecule test
 ```
 
