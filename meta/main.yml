@@ -17,6 +17,16 @@ galaxy_info:
     versions:
     - all
     - hirsute
+  - name: ArchLinux
+    versions:
+    - all
+    - any
+  - name: Debian
+    versions:
+    - sid
+  - name: opensuse
+    versions:
+    - leap
 
   galaxy_tags:
   - monitoring

@@ -6,10 +6,19 @@ driver:
 platforms:
   - name: ansible-role-conky-fedora
     image: ghcr.io/avnes/molecule-fedora:34
-    pre_build_image: true
+    pre_build_image: True
   - name: ansible-role-conky-ubuntu
     image: ghcr.io/avnes/molecule-ubuntu:latest
-    pre_build_image: true
+    pre_build_image: True
+  - name: ansible-role-conky-opensuse
+    image: ghcr.io/avnes/molecule-opensuse:latest
+    pre_build_image: True
+  - name: ansible-role-conky-debian
+    image: ghcr.io/avnes/molecule-debian:latest
+    pre_build_image: True
+  - name: ansible-role-conky-arch
+    image: ghcr.io/avnes/molecule-arch:latest
+    pre_build_image: True
 provisioner:
   name: ansible
   config_options:
@@ -17,7 +26,7 @@ provisioner:
       interpreter_python: auto_silent
       callback_whitelist: profile_tasks, timer, yaml
     ssh_connection:
-      pipelining: false
+      pipelining: False
   options:
     vvv: True
 lint: |

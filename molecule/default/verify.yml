@@ -5,15 +5,22 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
+  - name: Task name
+    ansible.builtin.stat:
+      path: /home/ansible-test-user/.conkyrc
+    register: stat_conkyrc
+  - name: Assert that .conkyrc exists
     assert:
-      that: true
-
-# Old test that needs to be rewritten:
-# def test_conky_file(File):
-#     f = File('/home/ansible-test-user/.conkyrc')
-
-#     assert f.exists
-#     assert f.user == 'ansible-test-user'
-#     assert f.group == 'ansible-test-user'
-#     assert f.mode == 0o700
+      that: stat_conkyrc.stat.exists
+  - name: Assert that .conkyrc is a regular file
+    assert:
+      that: stat_conkyrc.stat.isreg
+  - name: Assert that .conkyrc is owned by user ansible-test-user
+    assert:
+      that: stat_conkyrc.stat.pw_name == 'ansible-test-user'
+  - name: Assert that .conkyrc is owned by group ansible-test-user
+    assert:
+      that: stat_conkyrc.stat.gr_name == 'ansible-test-user'
+  - name: Assert that .conkyrc has mode 0700
+    assert:
+      that: stat_conkyrc.stat.mode == '0700'

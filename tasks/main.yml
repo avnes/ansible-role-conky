@@ -1,6 +1,4 @@
 ---
-# tasks file for ansible-role-conky
-
 - name: Install software on Fedora
   when: ansible_distribution == 'Fedora'
   become: true
@@ -9,7 +7,6 @@
     state: "{{ item.state }}"
   with_items:
   - { name: 'conky', state: 'present' }
-  - { name: 'curl', state: 'present' }
 
 - name: Update software cache for pacman
   when: ansible_distribution == 'ArchLinux'
@@ -26,7 +23,6 @@
   with_items:
   - { name: 'conky', state: 'present' }
   - { name: 'conky-lua', state: 'present' }
-  - { name: 'curl', state: 'present' }
 
 - name: Update software cache for apt-get
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
@@ -43,7 +39,6 @@
     state: "{{ item.state }}"
   with_items:
   - { name: 'conky', state: 'present' }
-  - { name: 'curl', state: 'present' }
 
 - name: Install software on Debian
   when: ansible_distribution == 'Debian'
@@ -54,7 +49,6 @@
   with_items:
   - { name: 'conky', state: 'present' }
   - { name: 'conky-all', state: 'present' }
-  - { name: 'curl', state: 'present' }
   - { name: 'lm-sensors', state: 'present' }
 
 - name: Install software on openSUSE
@@ -65,7 +59,6 @@
     state: "{{ item.state }}"
   with_items:
   - { name: 'conky', state: 'present' }
-  - { name: 'curl', state: 'present' }
   - { name: 'conky-doc', state: 'present' }
 
 - name: Configure Conky
