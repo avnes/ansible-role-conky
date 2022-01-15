@@ -1,12 +1,12 @@
-master: [![Build Status](https://travis-ci.org/avnes/ansible-role-conky.png?branch=master)](https://travis-ci.org/avnes/ansible-role-conky) develop: [![Build Status](https://travis-ci.org/avnes/ansible-role-conky.png?branch=develop)](https://travis-ci.org/avnes/ansible-role-conky)
-
 # ansible-role-conky
+
+![Ansible](https://github.com/avnes/ansible-role-conky/actions/workflows/ansible.yaml/badge.svg)
 
 Ansible role for installing conky and performing basic setup and configuration. Basic .conkyrc copied from [doyousketch2] (<https://gist.github.com/doyousketch2/c0088f3827025ee037735f156e2c903c>) and adjusted slightly.
 
 ## Requirements
 
-None
+Poetry. Install it from <https://python-poetry.org/docs/>
 
 ## Role Variables
 
@@ -71,12 +71,17 @@ None
      - { role: avnes.ansible-role-conky, config_owner: 'maya' }
 ```
 
+## For pip compability
+
+```bash
+poetry export --dev --output requirements.txt
+```
+
 ## Test
 
 ```bash
-virtualenv ~/.virtualenv/ansible-role-conky
-source ~/.virtualenv/ansible-role-conky/bin/activate
-pip install -r requirements.txt
+poetry install
+poetry shell
 molecule test
 ```
 
@@ -86,4 +91,4 @@ MIT
 
 ## Author Information
 
-<https://github.com/avnes>
+<https://github.com/avnes/>
