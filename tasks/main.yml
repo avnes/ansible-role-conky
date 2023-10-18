@@ -46,7 +46,6 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
-    - { name: "conky", state: "present" }
     - { name: "conky-all", state: "present" }
     - { name: "lm-sensors", state: "present" }
 
