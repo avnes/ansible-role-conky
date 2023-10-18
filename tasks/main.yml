@@ -6,7 +6,7 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
-    - { name: "conky-all", state: "present" }
+    - { name: "conky", state: "present" }
 
 - name: Update software cache for pacman
   when: ansible_distribution == 'ArchLinux'
@@ -21,8 +21,7 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
-    - { name: "conky", state: "present" }
-    - { name: "conky-lua", state: "present" }
+    - { name: "conky-all", state: "present" }
 
 - name: Update software cache for apt-get
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
