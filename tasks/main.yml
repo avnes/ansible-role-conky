@@ -6,7 +6,7 @@
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
-    - { name: "conky", state: "present" }
+    - { name: "conky-all", state: "present" }
 
 - name: Update software cache for pacman
   when: ansible_distribution == 'ArchLinux'
